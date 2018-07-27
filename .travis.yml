@@ -1,0 +1,27 @@
+language: rust
+
+git:
+  submodules: false
+
+before_install:
+  - git submodule update --init
+
+install:
+  - curl -L https://github.com/gohugoio/hugo/releases/download/v0.46/hugo_0.46_Linux-64bit.tar.gz -o /tmp/hugo.tar.gz
+  - cd /tmp && tar xzf hugo.tar.gz
+  - sudo mv /tmp/hugo /usr/bin/hugo
+
+script:
+  - cd $TRAVIS_BUILD_DIR
+  - rm -rf public/*
+  - hugo
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: public
+  target-branch: master
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: source
+

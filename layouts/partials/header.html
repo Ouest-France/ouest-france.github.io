@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='{{ .Site.Language.Lang }}'>
+
+{{ partial "head/head" . }}
+
+<body class='{{ partial "header/bodyClasses" . }}'>
+
+  <div class='site'>
+
+    {{ partial "sidebar/sidebar" . }}
+
+    <div class='main'>
+
+      {{ partial "nav/menus/main" . }}
+
+      <main id='content'>
