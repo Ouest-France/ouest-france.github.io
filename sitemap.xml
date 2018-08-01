@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://ouest-france.githu.io/posts/2018-07-31-migrating-to-java-10/</loc>
+    <lastmod>2018-07-31T23:20:12+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ouest-france.githu.io/posts/2018-05-07-ouest-france-au-breizhcamp-2019/</loc>
+    <lastmod>2018-05-07T22:26:12+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ouest-france.githu.io/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ouest-france.githu.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ouest-france.githu.io/</loc>
+    <lastmod>2018-07-31T23:20:12+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ouest-france.githu.io/posts/</loc>
+    <lastmod>2018-07-31T23:20:12+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ouest-france.githu.io/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ouest-france.githu.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

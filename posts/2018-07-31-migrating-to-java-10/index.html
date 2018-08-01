@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Today was a great day. We decided to migrate from Java 8 to Java 10 🎉.
+Migration Our main application is running spring-boot 1.5.x, and despite this disclaimer, we gave a try and succeded! (we are not ready to migrate to spring-boot 2.x because we have a lot of tooling to migrate and this needs to be planned)
+Even if Java 9 and 10 did not introduced major features we need, the migration is a good opportunity to prepare the future and to stick to latest versions.'>
+<meta name='theme-color' content='#e2001a'>
+
+<meta property='og:title' content='[EN] Migrating to Java 10 • Ouest-France'>
+<meta property='og:description' content='Today was a great day. We decided to migrate from Java 8 to Java 10 🎉.
+Migration Our main application is running spring-boot 1.5.x, and despite this disclaimer, we gave a try and succeded! (we are not ready to migrate to spring-boot 2.x because we have a lot of tooling to migrate and this needs to be planned)
+Even if Java 9 and 10 did not introduced major features we need, the migration is a good opportunity to prepare the future and to stick to latest versions.'>
+<meta property='og:url' content='https://ouest-france.githu.io/posts/2018-07-31-migrating-to-java-10/'>
+<meta property='og:site_name' content='Ouest-France'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2018-07-31T23:20:12&#43;02:00'/><meta property='article:modified_time' content='2018-07-31T23:20:12&#43;02:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.46" />
+
+  <title>[EN] Migrating to Java 10 • Ouest-France</title>
+  <link rel='canonical' href='https://ouest-france.githu.io/posts/2018-07-31-migrating-to-java-10/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.809149b6.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#e2001a;}
+</style>
+
+  
+
+</head>
+
+
+<body class='page type-posts has-sidebar has-emoji'>
+
+  <div class='site'>
+
+    <div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    Ouest-France
+    </h2>
+    <div class='desc'>
+    Updates, ideas and inspiration
+    </div>
+  </header>
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div>
+
+    <div class='main'>
+
+      <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>[EN] Migrating to Java 10</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-07-31T23:20:12&#43;02:00'>2018, Jul 31</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+3 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p><img src="https://cdn.crunchify.com/wp-content/uploads/2018/04/Java-10-Released-Crunchify-Tutorial.jpg" alt="Welcome Java 10" /></p>
+
+<p>Today was a great day. We decided to migrate from Java 8 to Java 10 🎉.</p>
+
+<h1 id="migration">Migration</h1>
+
+<p>Our main application is running spring-boot 1.5.x, and despite this <a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-with-Java-9-and-above#requirements" target="_blank">disclaimer</a>, we gave a try and succeded! (we are not ready to migrate to spring-boot 2.x because we have a lot of tooling to migrate and this needs to be planned)</p>
+
+<p>Even if Java 9 and 10 did not introduced major features we need, the migration is a good opportunity to prepare the future and to stick to latest versions. Our application is massively using <code>Threads</code> and generates dozen of objects in memory.
+As the CMS response time is one of our key metrics, we are always to try new versions that enhance those aspects (G1 to rule them all!).</p>
+
+<p>The migration was quiet easy. We basically added the missing dependencies requiered for Java &gt; 8 and voilà !</p>
+
+<blockquote>
+<p>Our continuous integration ran the test suites and everything was fine.</p>
+</blockquote>
+
+<h1 id="reality-versus-expectation">Reality versus expectation</h1>
+
+<p>But&hellip; after deploying the application in our staging environment, randomly, the application start throwing some <code>NoClassDefFoundError</code> about missing class for Redis 😰😰😰.</p>
+
+<p>After diging in spring source code, we figure out that the exception was coming from <code>org/springframework/data/redis/connection/jedis/JedisConnection.java:132</code>.
+This piece of code is responsible of guessing the version of Jedis (the Redis driver for Java), based on the presence of some classes.</p>
+
+<p>After several tests, we spot that there was two ways in our application to reach this code.</p>
+
+<ol>
+<li>directly from the thread that handles the http request</li>
+<li>from a separate thread that was spawned by one of our <code>ForkJoinPool</code></li>
+</ol>
+
+<p>The second was the problem.</p>
+
+<hr />
+
+<p>When you run a Tomcat server, there is a lot of &lsquo;magic&rsquo; that occurs around the <code>ClassLoader</code>. In order to be able to hot load / reload / unload and isolate the applications, Tomcat run its own <code>ClassLoader</code>. To do so, it overrides the <code>ClassLoader</code> associated with the request thread.</p>
+
+<p>So when you migrate to Java &gt; 8, in fact the <code>ClassLoader</code> you are using during the request rendering is a <code>WebappClassLoader</code>. This hides the Java 9 new modules behavior, makes your application interact with classes as before.</p>
+
+<p>When you spawn a <code>Thread</code> for a <code>ForkJoinPool</code>, your thread inherit from a <code>AppClassLoader</code> which directly comes from JDK, and this one loves modules!
+It actullay implements Java modules and the visibility between them.</p>
+
+<p>When we are running a spring-boot 1.5.x application with a Java 9 <code>ClassLoader</code> it does not work (as explained in the disclaimer 😁)</p>
+
+<h1 id="workaround">Workaround</h1>
+
+<p>As explained, Tomcat is automatically overrinding the <code>ClassLoader</code> from the jvm with one of its own. This class loader is module-proof and hides the new Java 9 features.</p>
+
+<p>Then we decided to do the same with our thread. As soon as we spawn a new <code>Thread</code>, we set its class loader to the one from the current thread (issued from Tomcat), and voila!</p>
+
+<p>We eventually managed to migrate our application with Java 10.</p>
+
+<p>Of course, this workaround is clearly showing the limit of migrating to Java 10 without taking the modules into account.</p>
+
+<p>Definitively, we will need to migrate to spring-boot 2 soon !</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/2018-05-07-ouest-france-au-breizhcamp-2019/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>[FR] Ouest-France au breizhcamp 2018</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/ouest-france' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://facebook.com/OuestFrance' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/OuestFrance' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://instagram.com/ouestfrance' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/ouest-france' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p>All content are free</p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.68cb493a.js'></script><script src='/js/custom.js'></script>
+
+
+
+</body>
+
+</html>
+
