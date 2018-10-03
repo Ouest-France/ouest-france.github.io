@@ -15,7 +15,7 @@ Today was a great day. We decided to migrate from Java 8 to Java 10 :tada:.
 Our main application is running spring-boot 1.5.x, and despite this [disclaimer](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-with-Java-9-and-above#requirements), we gave a try and succeded! (we are not ready to migrate to spring-boot 2.x because we have a lot of tooling to migrate and this needs to be planned)
 
 Even if Java 9 and 10 did not introduced major features we need, the migration is a good opportunity to prepare the future and to stick to latest versions. Our application is massively using `Threads` and generates dozen of objects in memory.
-As the CMS response time is one of our key metrics, we are always to try new versions that enhance those aspects (G1 to rule them all!).
+As the CMS response time is one of our key metrics, we are always happy to try new versions that enhance those aspects (G1 to rule them all!).
 
 The migration was quiet easy. We basically added the missing dependencies requiered for Java > 8 and voilà !
 
@@ -26,6 +26,32 @@ The migration was quiet easy. We basically added the missing dependencies requie
 But... after deploying the application in our staging environment, randomly, the application start throwing some `NoClassDefFoundError` about missing class for Redis :cold_sweat::cold_sweat::cold_sweat:.
 
 After diging in spring source code, we figure out that the exception was coming from `org/springframework/data/redis/connection/jedis/JedisConnection.java:132`.
+
+{{< highlight java "linenos=table,hl_lines=7-9 14-16,linenostart=118" >}}
+	static {
+
+		CLIENT_FIELD = ReflectionUtils.findField(BinaryJedis.class, "client", Client.class);
+		ReflectionUtils.makeAccessible(CLIENT_FIELD);
+
+		try {
+			Class<?> commandType = ClassUtils.isPresent("redis.clients.jedis.ProtocolCommand", null)
+					? ClassUtils.forName("redis.clients.jedis.ProtocolCommand", null)
+					: ClassUtils.forName("redis.clients.jedis.Protocol$Command", null);
+
+			SEND_COMMAND = ReflectionUtils.findMethod(Connection.class, "sendCommand",
+					new Class[] { commandType, byte[][].class });
+		} catch (Exception e) {
+			throw new NoClassDefFoundError(
+					"Could not find required flavor of command required by 'redis.clients.jedis.Connection#sendCommand'.");
+		}
+
+		ReflectionUtils.makeAccessible(SEND_COMMAND);
+
+		GET_RESPONSE = ReflectionUtils.findMethod(Queable.class, "getResponse", Builder.class);
+		ReflectionUtils.makeAccessible(GET_RESPONSE);
+}
+{{< / highlight >}}
+
 This piece of code is responsible of guessing the version of Jedis (the Redis driver for Java), based on the presence of some classes.
 
 After several tests, we spot that there was two ways in our application to reach this code.
