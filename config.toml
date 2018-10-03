@@ -1,7 +1,7 @@
 baseURL = "https://ouest-france.githu.io/"
 title = "Ouest-France"
 # for smart copyright line, leave this blank and check [params.copyright]
-copyright = "All content are free"
+copyright = "All content are copy left"
 
 theme = "minimo"
 
