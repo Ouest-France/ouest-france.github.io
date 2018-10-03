@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ouest-France</title>
+    <link>https://ouest-france.githu.io/</link>
+    <description>Recent content on Ouest-France</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>All content are copy left</copyright>
+    <lastBuildDate>Tue, 31 Jul 2018 23:20:12 +0200</lastBuildDate>
+    
+	<atom:link href="https://ouest-france.githu.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[EN] Migrating to Java 10</title>
+      <link>https://ouest-france.githu.io/posts/2018-07-31-migrating-to-java-10/</link>
+      <pubDate>Tue, 31 Jul 2018 23:20:12 +0200</pubDate>
+      
+      <guid>https://ouest-france.githu.io/posts/2018-07-31-migrating-to-java-10/</guid>
+      <description>Today was a great day. We decided to migrate from Java 8 to Java 10 🎉.
+Migration Our main application is running spring-boot 1.5.x, and despite this disclaimer, we gave a try and succeded! (we are not ready to migrate to spring-boot 2.x because we have a lot of tooling to migrate and this needs to be planned).
+Even if Java 9 and 10 did not introduced major features we need, the migration is a good opportunity to prepare the future and to stick to latest java versions.</description>
+    </item>
+    
+    <item>
+      <title>[FR] Ouest-France au breizhcamp 2018</title>
+      <link>https://ouest-france.githu.io/posts/2018-05-07-ouest-france-au-breizhcamp-2019/</link>
+      <pubDate>Mon, 07 May 2018 22:26:12 +0200</pubDate>
+      
+      <guid>https://ouest-france.githu.io/posts/2018-05-07-ouest-france-au-breizhcamp-2019/</guid>
+      <description>&lt;p&gt;Cette année, la conférence informatique du Breizhcamp se tenait à l&amp;rsquo;ISTIC.
+François-Guillaume Ribreau et Mathieu Pousse y étaient présents pour parler des problématiques recontrées chez Ouest-France.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
